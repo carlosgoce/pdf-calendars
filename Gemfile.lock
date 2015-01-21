@@ -5,6 +5,7 @@ GEM
     prawn (1.3.0)
       pdf-core (~> 0.4.0)
       ttfunk (~> 1.4.0)
+    rake (10.4.2)
     ttfunk (1.4.0)
 
 PLATFORMS
@@ -12,3 +13,4 @@ PLATFORMS
 
 DEPENDENCIES
   prawn (~> 1.3.0)
+  rake (~> 10.4.2)
