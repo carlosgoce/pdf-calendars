@@ -1,0 +1,5 @@
+# pdf-calendars
+Generate PDF calendars
+
+More locales here:
+https://github.com/svenfuchs/rails-i18n/tree/master/rails/locale
