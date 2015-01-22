@@ -11,14 +11,14 @@ module CarlosGoce
     end
 
     def to_h
-      h = {}
-      (1..12).each do |month|
-        month_name = I18n.t('date.month_names')[month].downcase
-        month_days =(1...Time.days_in_month(month, @year)).to_a.each_slice(7).to_a
-        h[month_name] = month_days
-      end
+      Hash.new.tap {|bar|
+        (1..12).each do |month|
+          month_name = I18n.t('date.month_names')[month].downcase
+          month_days =(1...Time.days_in_month(month, @year)).to_a.each_slice(7).to_a
 
-      h
+          bar[month_name] = month_days
+        end
+      }
     end
   end
 end
