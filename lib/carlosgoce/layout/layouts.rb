@@ -21,7 +21,8 @@ module CarlosGoce
 
           table(
               tables.each_slice(3).to_a,
-              :cell_style => {:align => :center, :padding => [5, 5, 5, 5]}
+              cell_style: {align: :center, padding: [5, 5, 5, 5],
+              border_width: 0}
           )
         end
       end
