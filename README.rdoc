@@ -1,16 +1,16 @@
 = pdf-calendars
-# Generate pdf calendars
+Generate pdf calendars
 
-# The idea is to have multiple calendar designs
-# with different formats, localized text, custom colors, etc.
-# and be able to create beautiful pdfs to use on Ilustrator,
-# Coreldraw, Photoshop or where you need it
+The idea is to have multiple calendar designs
+with different formats, localized text, custom colors, etc.
+and be able to create beautiful pdfs to use on Ilustrator,
+Coreldraw, Photoshop or where you need it
 -------------------------
 
 == Localization
-# Currently available languages are
+Currently available languages are
 - en
 - es
 
-# You can add more locales from here:
-# https://github.com/svenfuchs/rails-i18n/tree/master/rails/locale
+You can add more locales from here:
+https://github.com/svenfuchs/rails-i18n/tree/master/rails/locale
