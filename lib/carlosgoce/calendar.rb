@@ -16,6 +16,15 @@ module CarlosGoce
           h[month] = Hash.new.tap {|m|
             m[:days] = (1..Time.days_in_month(month, @year)).to_a
             m[:name] = I18n.t('date.month_names')[month].downcase
+
+            # todo: Need improvement. Not too performant...
+            # todo: Maby it should be moved to it's own class too to keep things simple
+            m[:days_names] = Array.new.tap {|a|
+              m[:days].each do |d|
+                t = Time.new @year, month, d
+                a << t.strftime('%A').downcase
+              end
+            }
           }
         end
       }
