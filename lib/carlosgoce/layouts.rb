@@ -1,6 +1,6 @@
 module CarlosGoce
   class Layout
-    def create(file)
+    def create(file, hash)
 
     end
   end

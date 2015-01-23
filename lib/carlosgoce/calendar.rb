@@ -31,7 +31,7 @@ module CarlosGoce
     end
 
     def generate(layout, file)
-      layout.create file
+      layout.create file, to_h
     end
   end
 end

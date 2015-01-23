@@ -48,7 +48,7 @@ describe 'Calendar' do
     it 'should receive a layout and pass it the data to create the specified file' do
       layout = instance_double('CarlosGoce::Layout')
       file = 'destionation.pdf'
-      expect(layout).to receive(:create).with(file)
+      expect(layout).to receive(:create).with(file, @calendar.to_h)
 
       @calendar.generate(layout, file)
     end
