@@ -5,12 +5,16 @@ The idea is to have multiple calendar designs
 with different formats, localized text, custom colors, etc.
 and be able to create beautiful pdfs to use on Ilustrator,
 Coreldraw, Photoshop or where you need it
--------------------------
+-----------------------------------------------------------
+== Installation
+    bundle install
+
+== Tests
+Run them with
+    bundle exec rspec
 
 == Localization
-Currently available languages are
-- en
-- es
+Currently available languages are english and spanish
 
 You can add more locales from here:
 https://github.com/svenfuchs/rails-i18n/tree/master/rails/locale
