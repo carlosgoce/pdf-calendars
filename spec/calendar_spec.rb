@@ -1,5 +1,4 @@
 require 'rspec'
-require 'rspec/expectations'
 require_relative '../lib/carlosgoce/calendar'
 
 I18n.load_path = Dir['config/locales/*.yml']
