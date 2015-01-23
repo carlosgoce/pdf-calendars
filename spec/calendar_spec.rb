@@ -14,15 +14,15 @@ describe 'Calendar' do
     expect(@calendar.year).to eq(Date.today.year)
   end
 
-  describe 'Return months and days of given year' do
+  describe 'Return a data structure with all needed data to generate a pdf' do
     it 'should have all months of the year' do
       expect(@calendar.to_h.count).to eq(12)
     end
 
-    it 'localize month names' do
-      expect(@calendar.to_h.keys.first.to_s).to eq('january')
+    it 'return month names localized' do
+      expect(@calendar.to_h[1][:name]).to eq('january')
       I18n.locale = 'es'
-      expect(@calendar.to_h.keys.first.to_s).to eq('enero')
+      expect(@calendar.to_h[1][:name]).to eq('enero')
     end
   end
 end

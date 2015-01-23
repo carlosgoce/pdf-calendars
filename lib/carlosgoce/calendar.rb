@@ -11,12 +11,11 @@ module CarlosGoce
     end
 
     def to_h
-      Hash.new.tap {|bar|
+      Hash.new.tap {|h|
         (1..12).each do |month|
-          month_name = I18n.t('date.month_names')[month].downcase
-          month_days =(1...Time.days_in_month(month, @year)).to_a.each_slice(7).to_a
-
-          bar[month_name] = month_days
+          h[month] = {}
+          h[month][:days] = (1...Time.days_in_month(month, @year)).to_a.each_slice(7).to_a
+          h[month][:name] = I18n.t('date.month_names')[month].downcase
         end
       }
     end
