@@ -13,9 +13,10 @@ module CarlosGoce
     def to_h
       Hash.new.tap {|h|
         (1..12).each do |month|
-          h[month] = {}
-          h[month][:days] = (1...Time.days_in_month(month, @year)).to_a.each_slice(7).to_a
-          h[month][:name] = I18n.t('date.month_names')[month].downcase
+          h[month] = Hash.new.tap {|m|
+            m[:days] = (1...Time.days_in_month(month, @year)).to_a.each_slice(7).to_a
+            m[:name] = I18n.t('date.month_names')[month].downcase
+          }
         end
       }
     end
