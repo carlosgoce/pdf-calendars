@@ -29,5 +29,9 @@ module CarlosGoce
         end
       }
     end
+
+    def generate(layout, file)
+      layout.create file
+    end
   end
 end

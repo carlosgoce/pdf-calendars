@@ -1,5 +1,6 @@
 require 'rspec'
 require_relative '../lib/carlosgoce/calendar'
+require_relative '../lib/carlosgoce/layouts'
 
 I18n.load_path = Dir['config/locales/*.yml']
 I18n.backend.load_translations
@@ -41,5 +42,15 @@ describe 'Calendar' do
       expect(@calendar.to_h[1][:days_names].first).to eq 'jueves'
     end
 
+  end
+
+  describe 'Can generate a pdfs' do
+    it 'should receive a layout and pass it the data to create the specified file' do
+      layout = instance_double('CarlosGoce::Layout')
+      file = 'destionation.pdf'
+      expect(layout).to receive(:create).with(file)
+
+      @calendar.generate(layout, file)
+    end
   end
 end
