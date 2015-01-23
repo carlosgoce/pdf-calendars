@@ -22,7 +22,7 @@ module CarlosGoce
             m[:days_names] = Array.new.tap {|a|
               m[:days].each do |d|
                 t = Time.new @year, month, d
-                a << t.strftime('%A').downcase
+                a << I18n.t('date.day_names')[t.wday].downcase
               end
             }
           }

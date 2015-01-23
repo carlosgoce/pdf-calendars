@@ -7,6 +7,7 @@ I18n.backend.load_translations
 
 describe 'Calendar' do
   before(:each) do
+    I18n.locale = 'en'
     @calendar = CarlosGoce::Calendar.new 2015
   end
 
@@ -35,9 +36,7 @@ describe 'Calendar' do
       expect(@calendar.to_h[1][:days_names].count).to eq 31
     end
 
-    it 'return the day names localized',
-       :pending => "Not working!!! Months are localized, why days aren't?" do
-      skip 'Is not working, the names are localized so why days are not?'
+    it 'return the day names localized' do
       I18n.locale = 'es'
       expect(@calendar.to_h[1][:days_names].first).to eq 'jueves'
     end
