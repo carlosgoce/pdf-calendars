@@ -37,6 +37,7 @@ describe 'Calendar' do
     end
 
     it 'return the day names localized' do
+      expect(@calendar.to_h[1][:days_names].first).to eq 'thursday'
       I18n.locale = 'es'
       expect(@calendar.to_h[1][:days_names].first).to eq 'jueves'
     end
