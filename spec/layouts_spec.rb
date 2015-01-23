@@ -6,7 +6,7 @@ describe 'Layout simple' do
   before(:each) do
     @calendar = CarlosGoce::Calendar.new
     @layout = CarlosGoce::Layout::Simple.new
-    @file = 'output/simple.pdf'
+    @file = 'spec/output/simple.pdf'
     FileUtils.rm_f(@file)
   end
 
