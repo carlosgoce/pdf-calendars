@@ -30,8 +30,8 @@ module CarlosGoce
       }
     end
 
-    def generate(layout, file)
-      layout.create file, to_h
+    def generate(layout, file, year)
+      layout.create file, to_h, year
     end
   end
 end
