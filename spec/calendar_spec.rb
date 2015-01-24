@@ -45,7 +45,7 @@ describe 'Calendar' do
     # todo Improve spec description
     it 'return the days available formated as array leaving blank days for the starting week\'s day' do
       days_for_january_2015 = ['', '', ''] + (1..31).to_a
-      expect(@calendar.to_h[:months][1][:formatted_days].first).to eq days_for_january_2015
+      expect(@calendar.to_h[:months][1][:formatted_days]).to eq days_for_january_2015
     end
   end
 
