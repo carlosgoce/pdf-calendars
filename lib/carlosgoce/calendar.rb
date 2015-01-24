@@ -27,6 +27,14 @@ module CarlosGoce
             }
           }
         end
+
+        h[:formatted_days] = Array.new.tap {|a|
+          # todo Why I need to use 1?
+          days_before_week_start = Date.new(@year, 1, h[1][:days].first).wday
+          empty_days = [''] * (days_before_week_start - 1)
+
+          a << (empty_days + h[1][:days])
+        }
       }
     end
 

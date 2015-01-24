@@ -41,12 +41,18 @@ describe 'Calendar' do
       I18n.locale = 'es'
       expect(@calendar.to_h[1][:days_names].first).to eq 'jueves'
     end
+
+    # todo Improve spec description
+    it 'return the days available formated as array leaving blank days for the starting week\'s day' do
+      days_for_january_2015 = ['', '', ''] + (1..31).to_a
+      expect(@calendar.to_h[:formatted_days].first).to eq days_for_january_2015
+    end
   end
 
   describe 'Can generate a pdfs' do
     it 'should receive a layout and pass it the data to create the specified file' do
       layout = instance_double('CarlosGoce::Layout::Simple')
-      file = 'destionation.pdf'
+      file = 'destination.pdf'
       year = 2015
       expect(layout).to receive(:create).with(file, @calendar.to_h, year)
 
