@@ -18,34 +18,34 @@ describe 'Calendar' do
 
   describe 'Return a data structure with all needed data to generate a pdf' do
     it 'should have all months of the year' do
-      expect(@calendar.to_h.count).to eq(12)
+      expect(@calendar.to_h[:months].count).to eq(12)
     end
 
     it 'return month names localized' do
-      expect(@calendar.to_h[1][:name]).to eq 'january'
+      expect(@calendar.to_h[:months][1][:name]).to eq 'january'
       I18n.locale = 'es'
-      expect(@calendar.to_h[1][:name]).to eq 'enero'
+      expect(@calendar.to_h[:months][1][:name]).to eq 'enero'
     end
 
     it 'return the numbers of available days for each month' do
-      expect(@calendar.to_h[1][:days]).to eq (1..31).to_a
+      expect(@calendar.to_h[:months][1][:days]).to eq (1..31).to_a
     end
 
     it 'return the days as names' do
-      expect(@calendar.to_h[1][:days_names].first).to eq 'thursday'
-      expect(@calendar.to_h[1][:days_names].count).to eq 31
+      expect(@calendar.to_h[:months][1][:days_names].first).to eq 'thursday'
+      expect(@calendar.to_h[:months][1][:days_names].count).to eq 31
     end
 
     it 'return the day names localized' do
-      expect(@calendar.to_h[1][:days_names].first).to eq 'thursday'
+      expect(@calendar.to_h[:months][1][:days_names].first).to eq 'thursday'
       I18n.locale = 'es'
-      expect(@calendar.to_h[1][:days_names].first).to eq 'jueves'
+      expect(@calendar.to_h[:months][1][:days_names].first).to eq 'jueves'
     end
 
     # todo Improve spec description
     it 'return the days available formated as array leaving blank days for the starting week\'s day' do
       days_for_january_2015 = ['', '', ''] + (1..31).to_a
-      expect(@calendar.to_h[:formatted_days].first).to eq days_for_january_2015
+      expect(@calendar.to_h[:months][1][:formatted_days].first).to eq days_for_january_2015
     end
   end
 

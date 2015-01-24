@@ -12,29 +12,30 @@ module CarlosGoce
 
     def to_h
       Hash.new.tap {|h|
-        (1..12).each do |month|
-          h[month] = Hash.new.tap {|m|
-            m[:days] = (1..Time.days_in_month(month, @year)).to_a
-            m[:name] = I18n.t('date.month_names')[month].downcase
+        h[:months] = Hash.new.tap do |h|
+          (1..12).each do |month|
+            h[month] = Hash.new.tap {|m|
+              m[:days] = (1..Time.days_in_month(month, @year)).to_a
+              m[:name] = I18n.t('date.month_names')[month].downcase
 
-            # todo: Need improvement. Not too performant...
-            # todo: Maby it should be moved to it's own class too to keep things simple
-            m[:days_names] = Array.new.tap {|a|
-              m[:days].each do |d|
-                t = Time.new @year, month, d
-                a << I18n.t('date.day_names')[t.wday].downcase
-              end
+              # todo: Need improvement. Not too performant...
+              # todo: Maby it should be moved to it's own class too to keep things simple
+              m[:days_names] = Array.new.tap {|a|
+                m[:days].each do |d|
+                  t = Time.new @year, month, d
+                  a << I18n.t('date.day_names')[t.wday].downcase
+                end
+              }
             }
-          }
+
+            h[month][:formatted_days] = Array.new.tap {|a|
+              days_before_week_start = Date.new(@year, 1, h[1][:days].first).wday
+              empty_days = [''] * (days_before_week_start - 1)
+
+              a << (empty_days + h[1][:days])
+            }
+          end
         end
-
-        h[:formatted_days] = Array.new.tap {|a|
-          # todo Why I need to use 1?
-          days_before_week_start = Date.new(@year, 1, h[1][:days].first).wday
-          empty_days = [''] * (days_before_week_start - 1)
-
-          a << (empty_days + h[1][:days])
-        }
       }
     end
 

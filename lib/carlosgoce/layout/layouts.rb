@@ -7,12 +7,11 @@ module CarlosGoce
     class Simple
       def create (file, data, year)
         tables = []
-
         Prawn::Document.generate(file) do
           font_size = 16
 
           data.each do |k, month|
-            days = data[k][:days]
+            days = data[k][:formatted_days]
             cells = (days).to_a.each_slice(7).to_a
             cells.unshift [data[k][:name]]
 
