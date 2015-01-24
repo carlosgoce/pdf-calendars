@@ -28,12 +28,10 @@ module CarlosGoce
               }
             }
 
-            h[month][:formatted_days] = Array.new.tap {|a|
-              days_before_week_start = Date.new(@year, 1, h[1][:days].first).wday
-              empty_days = [''] * (days_before_week_start - 1)
-
-              a << (empty_days + h[1][:days])
-            }
+            # Formatted days creation
+            days_before_week_start = Date.new(@year, 1, h[1][:days].first).wday
+            empty_days = [''] * (days_before_week_start - 1)
+            h[month][:formatted_days] = empty_days + h[1][:days]
           end
         end
       }
