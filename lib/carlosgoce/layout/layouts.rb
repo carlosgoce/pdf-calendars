@@ -20,7 +20,7 @@ module CarlosGoce
             tables << make_table(cells,
                                  cell_style:
                                      {
-                                         width: 20, align: :center, size: 7, border_width: 0,
+                                         width: 15, height: 12, align: :center, size: 7, border_width: 0,
                                          padding: 0
                                      })
           end
