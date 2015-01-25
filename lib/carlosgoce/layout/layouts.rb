@@ -14,9 +14,15 @@ module CarlosGoce
             days = month[:formatted_days]
             cells = days.to_a.each_slice(7).to_a
             cells.unshift %w(L M X J V S D)
-            cells.unshift [month[:name]]
+            cells.unshift [{content: "<color rgb='FF0000'><strong>#{month[:name]}</strong></color>", colspan: 7,
+                           inline_format: true}]
 
-            tables << make_table(cells, cell_style: {align: :center, size: 7, border_width: 0})
+            tables << make_table(cells,
+                                 cell_style:
+                                     {
+                                         width: 20, align: :center, size: 7, border_width: 0,
+                                         padding: 0
+                                     })
           end
 
           table(
