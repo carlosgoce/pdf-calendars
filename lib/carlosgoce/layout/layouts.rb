@@ -21,14 +21,13 @@ module CarlosGoce
                                  cell_style:
                                      {
                                          width: 15, height: 12, align: :center, size: 7, border_width: 0,
-                                         padding: 0
+                                         padding: 0, valign: :center
                                      })
           end
 
           table(
-              tables.each_slice(3).to_a,
-              cell_style: {align: :center, padding: [5, 5, 5, 5],
-              border_width: 0}
+              tables.each_slice(3).to_a, cell_style: {align: :center, padding: [5, 5, 5, 5], border_width: 0,
+                                                      valign: :center}
           )
         end
       end
