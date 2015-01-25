@@ -12,8 +12,8 @@ module CarlosGoce
 
           data[:months].each do |k, month|
             days = month[:formatted_days]
-            cells = days.to_a.each_slice(6).to_a
-            cells.unshift %w(L M X V S D)
+            cells = days.to_a.each_slice(7).to_a
+            cells.unshift %w(L M X J V S D)
             cells.unshift [month[:name]]
 
             tables << make_table(cells, cell_style: {align: :center, size: 7, border_width: 0})

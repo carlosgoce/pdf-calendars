@@ -46,6 +46,9 @@ describe 'Calendar' do
     it 'return the days available formated as array leaving blank days for the starting week\'s day' do
       days_for_january_2015 = ['', '', ''] + (1..31).to_a
       expect(@calendar.to_h[:months][1][:formatted_days]).to eq days_for_january_2015
+
+      days_for_february_2015 = ['', '', '', '', '', ''] + (1..28).to_a
+      expect(@calendar.to_h[:months][2][:formatted_days]).to eq days_for_february_2015
     end
   end
 

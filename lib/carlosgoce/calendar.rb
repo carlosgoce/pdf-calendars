@@ -29,9 +29,13 @@ module CarlosGoce
             }
 
             # Formatted days creation
-            days_before_week_start = Date.new(@year, 1, h[1][:days].first).wday
-            empty_days = [''] * (days_before_week_start - 1)
-            h[month][:formatted_days] = empty_days + h[1][:days]
+            # @todo First day defaults to Sunday but I should be able to change it to Monday
+            day_of_week = Date.new(@year, month, h[1][:days].first).wday
+            # Fix to change to spanish
+            days_before_week_start = if day_of_week == 0 then 6 else day_of_week -1 end
+
+            empty_days = [''] * days_before_week_start
+            h[month][:formatted_days] = empty_days + h[month][:days]
           end
         end
       }
