@@ -11,4 +11,4 @@ before_script:
   - mkdir -p shippable/testresults
 
 script:
-  - rspec -f JUnit -o shippable/testresults/results.xml
+  - rspec --format RspecJunitFormatter  --out shippable/testresults/results.xml
